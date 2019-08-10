@@ -25,5 +25,9 @@ export default StyleSheet.create({
     },
     buttonLabel: {
       color: 'white'
+    },
+    listItemContainer: {
+        flex: 1,
+        flexDirection: 'row'
     }
   });

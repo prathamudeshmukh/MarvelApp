@@ -19,11 +19,11 @@ import {
   FlatList
 } from 'react-native';
 
-import SearchScreen from './app/screens/SearchScreen';
+import Navigator from './Navigator';
 
 const App = () => {
   return (
-      <SearchScreen/>
+      <Navigator/>
   );
 };
 

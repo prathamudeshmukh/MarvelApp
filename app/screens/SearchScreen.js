@@ -4,7 +4,8 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    FlatList
+    FlatList,
+    Image
   } from 'react-native';  
 import styles from './styles/SearchScreenStyles';
 export default class SearchScreen extends React.Component{
@@ -47,8 +48,27 @@ export default class SearchScreen extends React.Component{
               "description": ""
             }
           ];
+        this.navigateToCharacterScreen = this.navigateToCharacterScreen.bind(this);
+        this.renderItem = this.renderItem.bind(this);
+    }
+
+    navigateToCharacterScreen() {
+        this.props.navigation.navigate('Character');
     }
     
+    renderItem({item}) {
+        console.log(item);
+        return <TouchableOpacity onPress={this.navigateToCharacterScreen}>
+            <View style={styles.listItemContainer}>
+                <Image 
+                    source={ {uri: item.thumbnailUrl} } 
+                    style={{height: 150, width: 150}} 
+                />
+                <Text>{item.name}</Text>
+            </View>
+        </TouchableOpacity>;
+    }
+
     render() {
        return  <View style={styles.mainContainer}>
             <View style={styles.searchControlContainer}>
@@ -62,7 +82,7 @@ export default class SearchScreen extends React.Component{
             <View style={styles.listContainer}>
                 <FlatList 
                 data={this.data}
-                renderItem={({item}) => <Text>{item.name}</Text>}
+                renderItem={this.renderItem}
                 />
             </View>
           </View>
