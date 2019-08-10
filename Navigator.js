@@ -3,8 +3,8 @@ import SearchScreen from './app/screens/SearchScreen';
 import CharacterScreen from './app/screens/CharacterScreen';
 const AppNavigator = createStackNavigator(
     {
-        Home: {screen: SearchScreen},
-        Character: {screen: CharacterScreen}
+        Home: {screen: SearchScreen, navigationOptions: {title: 'Marvel'}},
+        Character: {screen: CharacterScreen, navigationOptions: {title: 'Marvel'}}
     },
     {
         initialRouteName: 'Home'
